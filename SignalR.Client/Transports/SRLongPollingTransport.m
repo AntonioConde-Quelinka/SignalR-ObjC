@@ -26,7 +26,6 @@
 #import "SRExceptionHelper.h"
 #import "SRLog.h"
 #import "SRLongPollingTransport.h"
-#import "SRSecurityPolicy.h"
 
  @interface SRLongPollingTransport()
  

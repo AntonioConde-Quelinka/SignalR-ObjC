@@ -25,7 +25,6 @@
 #import "SRHttpBasedTransport.h"
 #import "SRLog.h"
 #import "SRNegotiationResponse.h"
-#import "SRSecurityPolicy.h"
 
 #import "NSObject+SRJSON.h"
 
