@@ -25,6 +25,7 @@
 #import "SRLog.h"
 #import "SRLongPollingTransport.h"
 #import "SRNegotiationResponse.h"
+#import "SRServerSentEventsTransport.h"
 #import "SRWebSocketTransport.h"
 
 @interface SRAutoTransport ()
@@ -39,6 +40,7 @@
 
 - (instancetype)init {
     NSArray *transports = @[[[SRWebSocketTransport alloc] init],
+                            [[SRServerSentEventsTransport alloc] init],
                             [[SRLongPollingTransport alloc] init]];
     return [self initWithTransports:transports];
 }

@@ -13,6 +13,7 @@
 #import "SRConnectionInterface.h"
 #import "SRAutoTransport.h"
 #import "SRWebSocketTransport.h"
+#import "SRServerSentEventsTransport.h"
 #import "SRMockClientTransport.h"
 #import "SRMockWaitBlockOperation.h"
 #import "SRMockWSNetworkStream.h"
@@ -21,6 +22,12 @@
 @interface SRAutoTransport (UnitTest)
 
 @property (strong, nonatomic, readonly) NSMutableArray *transports;
+
+@end
+
+@interface SRServerSentEventsTransport (UnitTests)
+
+@property (strong, nonatomic, readwrite) NSOperationQueue *serverSentEventsOperationQueue;
 
 @end
 
