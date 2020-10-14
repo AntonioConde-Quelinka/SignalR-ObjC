@@ -94,8 +94,6 @@
 		67F08F302448FB904F57EA11 /* Pods_SignalR_Client_iOS_SignalR_Client_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD05576397746170EB20A0D9 /* Pods_SignalR_Client_iOS_SignalR_Client_iOSTests.framework */; };
 		77DDD23056DDF5601554BBC1 /* Pods_SignalR_Client_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B651E0317CA0F4E26E1338 /* Pods_SignalR_Client_iOS.framework */; };
 		C9D717AA1579C0EBB9DB7991 /* Pods_SignalR_Client_OSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E42E16292B5ADF0F39E2488 /* Pods_SignalR_Client_OSX.framework */; };
-		DD6BECEB2447DEE2009EAD23 /* SRSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6BECE82447DEE1009EAD23 /* SRSecurityPolicy.m */; };
-		DD6BECEC2447DEE2009EAD23 /* SRSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6BECE82447DEE1009EAD23 /* SRSecurityPolicy.m */; };
 		EB0E00004390814A26BA2CFE /* Pods_SignalR_Client_OSX_SignalR_Client_OSXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1B5DC6D0FC39C5177F9A65 /* Pods_SignalR_Client_OSX_SignalR_Client_OSXTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -217,8 +215,6 @@
 		A06755FFA3D124F078D03209 /* Pods-SignalR.Client.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalR.Client.iOS.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SignalR.Client.iOS/Pods-SignalR.Client.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A186B2D8C7AADAB56339675B /* Pods-SignalR.Client.OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalR.Client.OSX.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SignalR.Client.OSX/Pods-SignalR.Client.OSX.debug.xcconfig"; sourceTree = "<group>"; };
 		CD05576397746170EB20A0D9 /* Pods_SignalR_Client_iOS_SignalR_Client_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignalR_Client_iOS_SignalR_Client_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD6BECE72447DEE1009EAD23 /* SRSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRSecurityPolicy.h; sourceTree = "<group>"; };
-		DD6BECE82447DEE1009EAD23 /* SRSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRSecurityPolicy.m; sourceTree = "<group>"; };
 		DFFC3148AAF3EA599328B719 /* Pods-SignalR.Client.OSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalR.Client.OSX.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SignalR.Client.OSX/Pods-SignalR.Client.OSX.release.xcconfig"; sourceTree = "<group>"; };
 		ECA811FA4ADEF34C2DB45A4D /* Pods-SignalR.Client.iOS-SignalR.Client.iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalR.Client.iOS-SignalR.Client.iOSTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SignalR.Client.iOS-SignalR.Client.iOSTests/Pods-SignalR.Client.iOS-SignalR.Client.iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD1B5DC6D0FC39C5177F9A65 /* Pods_SignalR_Client_OSX_SignalR_Client_OSXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignalR_Client_OSX_SignalR_Client_OSXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -380,8 +376,6 @@
 			children = (
 				3920782515AF13F6009B959E /* Hubs */,
 				3920783715AF13F6009B959E /* Infrastructure */,
-				DD6BECE72447DEE1009EAD23 /* SRSecurityPolicy.h */,
-				DD6BECE82447DEE1009EAD23 /* SRSecurityPolicy.m */,
 				39EBAC2816D03F1000C6F359 /* SRConnectionInterface.h */,
 				3920784915AF13F6009B959E /* SRConnection.h */,
 				3920784A15AF13F6009B959E /* SRConnection.m */,
@@ -634,7 +628,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = 392077FC15AF13C3009B959E;
@@ -840,7 +833,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD6BECEB2447DEE2009EAD23 /* SRSecurityPolicy.m in Sources */,
 				39302A201C69768D0061C6B5 /* SRLongPollingTransport.m in Sources */,
 				39302A0B1C69768D0061C6B5 /* SRHubConnection.m in Sources */,
 				39302A151C69768D0061C6B5 /* SRHeartbeatMonitor.m in Sources */,
@@ -895,7 +887,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD6BECEC2447DEE2009EAD23 /* SRSecurityPolicy.m in Sources */,
 				39302A501C6979E10061C6B5 /* SRHeartbeatMonitor.m in Sources */,
 				39302A4E1C6979E10061C6B5 /* SRConnection.m in Sources */,
 				39302A451C6979E10061C6B5 /* SRHubConnection.m in Sources */,
