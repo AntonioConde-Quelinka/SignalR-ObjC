@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'Framework/*.{h}', 'SignalR.Client/**/*.{h,m}'
-    sp.dependency 'AFNetworking', '4.0.0'
-    sp.dependency 'SocketRocket', '0.5.1'
+    sp.dependency 'AFNetworking', '~>4.0'
+    sp.dependency 'SocketRocket', '~>0.5'
   end
 
   s.subspec 'CocoaLumberjack' do |sp|
