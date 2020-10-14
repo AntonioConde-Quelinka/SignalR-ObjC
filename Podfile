@@ -3,7 +3,7 @@ workspace 'SignalR.Client.ObjC'
 
 abstract_target "SignalR.Client.iOSModule" do
     use_frameworks!
-    platform :ios, '10.0'
+    platform :ios, '11.0'
     
     pod 'AFNetworking', '4.0.0'
     pod 'SocketRocket', '0.5.1'
