@@ -18,7 +18,6 @@
 #import "SRMockWaitBlockOperation.h"
 
 @interface SRLongPollingTransport ()
-@property (strong, nonatomic, readwrite) NSOperationQueue *pollingOperationQueue;
 
 - (void)poll:(id<SRConnectionInterface>)connection connectionData:(NSString *)connectionData completionHandler:(void (^)(id response, NSError *error))block;
 
@@ -49,7 +48,6 @@
     [connection changeState:disconnected toState:connected];
     
     SRLongPollingTransport* lp = [[ SRLongPollingTransport alloc] init];
-    lp.pollingOperationQueue = nil;//set to nil to get around weird ARC OCMock bugs http://stackoverflow.com/questions/18121902/using-ocmock-on-nsoperation-gives-bad-access
 
     id connect = [SRMockNetwork mockHttpRequestOperationForClass:[AFHTTPRequestOperation class]
                                                       statusCode:@200
@@ -89,7 +87,6 @@
     id connect1 = [SRMockNetwork mockHttpRequestOperationForClass:[AFHTTPRequestOperation class]
                                                        statusCode:@500
                                                             error:[[NSError alloc] initWithDomain:@"Unit test" code:42 userInfo:nil]];
-    lp.pollingOperationQueue = nil; //set to nil to get around weird ARC OCMock bugs http://stackoverflow.com/questions/18121902/using-ocmock-on-nsoperation-gives-bad-access
     SRMockWaitBlockOperation *errorDelay = [[SRMockWaitBlockOperation alloc] initWithWaitTime:[lp.errorDelay doubleValue]];
     [connection start:lp];
     [connect1 stopMocking];
@@ -129,7 +126,6 @@
     id connect = [SRMockNetwork mockHttpRequestOperationForClass:[AFHTTPRequestOperation class]
                                                       statusCode:@500
                                                            error:[[NSError alloc] initWithDomain:@"EXPECTED" code:NSURLErrorTimedOut userInfo:nil]];
-    lp.pollingOperationQueue = nil; //set to nil to get around weird ARC OCMock bugs http://stackoverflow.com/questions/18121902/using-ocmock-on-nsoperation-gives-bad-access
     SRMockWaitBlockOperation *errorDelay = [[SRMockWaitBlockOperation alloc] initWithWaitTime:[lp.errorDelay doubleValue]];
     [connection start:lp];
     [connect stopMocking];
@@ -147,7 +143,6 @@
     [connection changeState:disconnected toState:connected];
     
     SRLongPollingTransport* lp = [[ SRLongPollingTransport alloc] init];
-    lp.pollingOperationQueue = nil;//set to nil to get around weird ARC OCMock bugs http://stackoverflow.com/questions/18121902/using-ocmock-on-nsoperation-gives-bad-access
     
     id connect = [SRMockNetwork mockHttpRequestOperationForClass:[AFHTTPRequestOperation class]
                                                       statusCode:@500

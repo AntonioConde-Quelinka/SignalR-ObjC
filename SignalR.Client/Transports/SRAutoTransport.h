@@ -29,8 +29,7 @@
  *
  * ## Fallback order
  * 1. Websockets SRWebSocketTransport
- * 2. Server-Sent Events SRServerSentEventsTransport
- * 3. Long Polling SRLongPollingTransport
+ * 2. Long Polling SRLongPollingTransport
  */
 @interface SRAutoTransport : SRHttpBasedTransport <SRClientTransportInterface>
 
