@@ -122,6 +122,8 @@
     SRLogLPDebug(@"longPolling will connect at url: %@", [[request URL] absoluteString]);
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setResponseSerializer:[AFJSONResponseSerializer serializer]];
+    operation.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
+    operation.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
     //operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
     //operation.credential = self.credential;
     //operation.securityPolicy = self.securityPolicy;
