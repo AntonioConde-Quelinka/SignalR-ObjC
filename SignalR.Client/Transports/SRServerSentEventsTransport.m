@@ -31,6 +31,7 @@
 #import "SRServerSentEvent.h"
 #import "SREventSourceRequestSerializer.h"
 #import "SREventSourceResponseSerializer.h"
+#import "SRSecurityPolicy.h"
 
 typedef void (^SRCompletionHandler)(id response, NSError *error);
 
