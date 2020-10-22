@@ -25,7 +25,6 @@
 #import "SRHttpBasedTransport.h"
 #import "SRLog.h"
 #import "SRNegotiationResponse.h"
-#import "SRSecurityPolicy.h"
 
 #import "NSObject+SRJSON.h"
 
@@ -56,69 +55,24 @@
     [connection prepareRequest:request]; //TODO: prepareRequest
     [request setTimeoutInterval:30];
     
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
-    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer = serializer;
-    manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-    manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
-    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setResponseSerializer:[AFJSONResponseSerializer serializer]];
+    //operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
+    //operation.credential = self.credential;
+    //operation.securityPolicy = self.securityPolicy;
     SRLogTransportDebug(@"will negotiate at url: %@", [[request URL] absoluteString]);
-    [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-
-        NSError *serializationError = nil;
-        
-        NSInteger httpStatusCode = 0;
-        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-            NSHTTPURLResponse *httpResponse = (id)response;
-            httpStatusCode = httpResponse.statusCode;
-        }
-        
-        //Status code needs to be 200 to 299
-        if (httpStatusCode < 200 || httpStatusCode >= 300 || error != nil) {
-            SRLogTransportError(@"negotiate failed %@", error);
-            if(block) {
-                block(nil, error);
-            }
-            return;
-        }
-        
-        NSString *responseString = nil;
-        if (responseObject != nil) {
-            NSData *jsonStringData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&serializationError];
-            responseString = jsonStringData == nil ? nil : [[NSString alloc] initWithData:jsonStringData encoding:NSUTF8StringEncoding];
-        }
-        
-        SRLogTransportInfo(@"negotiate was successful %@", responseString);
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        SRLogTransportInfo(@"negotiate was successful %@", responseObject);
         if(block) {
             block([[SRNegotiationResponse alloc] initWithDictionary:responseObject], nil);
         }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        SRLogTransportError(@"negotiate failed %@", error);
+        if(block) {
+            block(nil, error);
+        }
     }];
-    
-//    /////
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    [operation setResponseSerializer:[AFJSONResponseSerializer serializer]];
-//    operation.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-//    operation.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
-//    //operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
-//    //operation.credential = self.credential;
-//    //operation.securityPolicy = self.securityPolicy;
-//    SRLogTransportDebug(@"will negotiate at url: %@", [[request URL] absoluteString]);
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        SRLogTransportInfo(@"negotiate was successful %@", responseObject);
-//        if(block) {
-//            block([[SRNegotiationResponse alloc] initWithDictionary:responseObject], nil);
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        SRLogTransportError(@"negotiate failed %@", error);
-//        if(block) {
-//            block(nil, error);
-//        }
-//    }];
-//    [operation start];
+    [operation start];
 }
 
 - (void)start:(id<SRConnectionInterface>)connection connectionData:(NSString *)connectionData completionHandler:(void (^)(id response, NSError *error))block {
@@ -133,50 +87,26 @@
     NSMutableURLRequest *url = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:[connection.url stringByAppendingString:@"send"] parameters:parameters error:nil];
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:[[url URL] absoluteString] parameters:@{ @"data" : data } error:nil];
     [connection prepareRequest:request]; //TODO: prepareRequest
-    
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
-    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer = serializer;
-    manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-    manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
-    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setResponseSerializer:[AFJSONResponseSerializer serializer]];
+    //operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
+    //operation.credential = self.credential;
+    //operation.securityPolicy = self.securityPolicy;
     SRLogTransportDebug(@"will send at url: %@", [[request URL] absoluteString]);
-    [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-
-        NSError *serializationError = nil;
-        
-        NSInteger httpStatusCode = 0;
-        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-            NSHTTPURLResponse *httpResponse = (id)response;
-            httpStatusCode = httpResponse.statusCode;
-        }
-        
-        //Status code needs to be 200 to 299
-        if (httpStatusCode < 200 || httpStatusCode >= 300 || error != nil) {
-            SRLogTransportError(@"send failed %@", error);
-            [connection didReceiveError:error];
-            if (block) {
-                block(nil, error);
-            }
-            return;
-        }
-        
-        NSString *responseString = nil;
-        if (responseObject != nil) {
-            NSData *jsonStringData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&serializationError];
-            responseString = jsonStringData == nil ? nil : [[NSString alloc] initWithData:jsonStringData encoding:NSUTF8StringEncoding];
-        }
-        
-        SRLogTransportInfo(@"send was successful %@", responseString);
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        SRLogTransportInfo(@"send was successful %@", responseObject);
         [connection didReceiveData:responseObject];
         if(block) {
             block(responseObject, nil);
         }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        SRLogTransportError(@"send failed %@", error);
+        [connection didReceiveError:error];
+        if (block) {
+            block(nil, error);
+        }
     }];
+    [operation start];
 }
 
 - (void)completeAbort {
@@ -216,43 +146,19 @@
         NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:[[url URL] absoluteString] parameters:nil error:nil];
         [connection prepareRequest:request]; //TODO: prepareRequest
         [request setTimeoutInterval:2];
-        
-        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
-        AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
-        manager.responseSerializer = serializer;
-        manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-        manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
-        
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        [operation setResponseSerializer:[AFJSONResponseSerializer serializer]];
+        //operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
+        //operation.credential = self.credential;
+        //operation.securityPolicy = self.securityPolicy;
         SRLogTransportDebug(@"will abort at url: %@", [[request URL] absoluteString]);
-        [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
-            
-        } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
-            
-        } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-
-            NSError *serializationError = nil;
-            
-            NSInteger httpStatusCode = 0;
-            if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-                NSHTTPURLResponse *httpResponse = (id)response;
-                httpStatusCode = httpResponse.statusCode;
-            }
-            
-            //Status code needs to be 200 to 299
-            if (httpStatusCode < 200 || httpStatusCode >= 300 || error != nil) {
-                SRLogTransportError(@"abort failed %@",error);
-                [self completeAbort];
-                return;
-            }
-            
-            NSString *responseString = nil;
-            if (responseObject != nil) {
-                NSData *jsonStringData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&serializationError];
-                responseString = jsonStringData == nil ? nil : [[NSString alloc] initWithData:jsonStringData encoding:NSUTF8StringEncoding];
-            }
-            
-            SRLogTransportInfo(@"abort was successful %@", responseString);
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            SRLogTransportInfo(@"abort was successful %@", responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            SRLogTransportError(@"abort failed %@",error);
+            [self completeAbort];
         }];
+        [operation start];
     }
 }
 

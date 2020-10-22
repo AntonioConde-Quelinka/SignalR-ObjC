@@ -1,32 +1,26 @@
-project 'SignalR.Client.ObjC/SignalR.Client.ObjC.xcodeproj'
+xcodeproj 'SignalR.Client.ObjC/SignalR.Client.ObjC'
 workspace 'SignalR.Client.ObjC'
 
-abstract_target "SignalR.Client.iOSModule" do
+target "SignalR.Client.iOS" do
     use_frameworks!
-    platform :ios, '10.0'
+    platform :ios, '8.0'
     
-    pod 'AFNetworking', '4.0.0'
-    pod 'SocketRocket', '0.5.1'
-    
-    target "SignalR.Client.iOS" do
-    end
+    pod 'AFNetworking', '2.6.3'
+    pod 'SocketRocket', '0.4.2'
     
     target "SignalR.Client.iOSTests" do
         pod 'OCMock'
     end
 end
 
-abstract_target "SignalR.Client.OSXModule" do
+target :"SignalR.Client.OSX" do
     use_frameworks!
-    platform :osx, '10.10'
+    platform :osx, '10.9'
     
-    pod 'AFNetworking', '4.0.0'
-    pod 'SocketRocket', '0.5.1'
+    pod 'AFNetworking', '2.6.3'
+    pod 'SocketRocket', '0.4.2'
     
-    target "SignalR.Client.OSX" do
-    end
-    
-    target "SignalR.Client.OSXTests" do
+    target :"SignalR.Client.OSXTests" do
         pod 'OCMock'
     end
 end

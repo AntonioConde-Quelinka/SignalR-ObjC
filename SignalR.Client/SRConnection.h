@@ -30,14 +30,14 @@
 
 @class SRConnection;
 
-typedef void (^SRConnectionStartedBlock)(void);
+typedef void (^SRConnectionStartedBlock)();
 typedef void (^SRConnectionReceivedBlock)(id);
 typedef void (^SRConnectionErrorBlock)(NSError *);
-typedef void (^SRConnectionClosedBlock)(void);
-typedef void (^SRConnectionReconnectingBlock)(void);
-typedef void (^SRConnectionReconnectedBlock)(void);
+typedef void (^SRConnectionClosedBlock)();
+typedef void (^SRConnectionReconnectingBlock)();
+typedef void (^SRConnectionReconnectedBlock)();
 typedef void (^SRConnectionStateChangedBlock)(connectionState);
-typedef void (^SRConnectionConnectionSlowBlock)(void);
+typedef void (^SRConnectionConnectionSlowBlock)();
 
 @interface SRConnection : NSObject <SRConnectionInterface>
 

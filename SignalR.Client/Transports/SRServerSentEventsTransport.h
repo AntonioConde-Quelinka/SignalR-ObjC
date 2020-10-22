@@ -1,8 +1,8 @@
 //
-//  SRAutoTransport.h
+//  SRServerSentEventsTransport.h
 //  SignalR
 //
-//  Created by Alex Billingsley on 1/15/12.
+//  Created by Alex Billingsley on 1/7/12.
 //  Copyright (c) 2011 DyKnow LLC. (http://dyknow.com/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -24,16 +24,17 @@
 #import "SRConnectionInterface.h"
 #import "SRHttpBasedTransport.h"
 
-/**
- * `SRAutoTransport` object provides support for choosing the best transport for the client
- *
- * ## Fallback order
- * 1. Websockets SRWebSocketTransport
- * 2. Server-Sent Events SRServerSentEventsTransport
- * 3. Long Polling SRLongPollingTransport
- */
-@interface SRAutoTransport : SRHttpBasedTransport <SRClientTransportInterface>
+@interface SRServerSentEventsTransport : SRHttpBasedTransport <SRClientTransportInterface>
 
-- (instancetype)initWithTransports:(NSArray *)transports;
+///-------------------------------
+/// @name Properties
+///-------------------------------
+
+/**
+ * Returns an `NSInteger` object with the time to wait after a connection drops to try reconnecting.
+ *
+ * By default, this is 2 seconds
+ */
+@property (strong, nonatomic, readwrite) NSNumber *reconnectDelay;
 
 @end
