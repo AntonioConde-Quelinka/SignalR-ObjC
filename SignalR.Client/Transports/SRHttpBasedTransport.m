@@ -63,7 +63,7 @@
     manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
     
     SRLogTransportDebug(@"will negotiate at url: %@", [[request URL] absoluteString]);
-    [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
         
     } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -97,6 +97,8 @@
             block([[SRNegotiationResponse alloc] initWithDictionary:responseObject], nil);
         }
     }];
+    
+    [dataTask resume];
     
 //    /////
 //    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
