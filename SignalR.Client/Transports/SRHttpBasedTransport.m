@@ -143,7 +143,7 @@
     manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
     
     SRLogTransportDebug(@"will send at url: %@", [[request URL] absoluteString]);
-    [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
         
     } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -179,6 +179,8 @@
             block(responseObject, nil);
         }
     }];
+    
+    [dataTask resume];
 }
 
 - (void)completeAbort {
@@ -226,7 +228,7 @@
         manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
         
         SRLogTransportDebug(@"will abort at url: %@", [[request URL] absoluteString]);
-        [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+        NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
             
         } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
             
@@ -255,6 +257,8 @@
             
             SRLogTransportInfo(@"abort was successful %@", responseString);
         }];
+        
+        [dataTask resume];
     }
 }
 

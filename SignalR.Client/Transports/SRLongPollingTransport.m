@@ -123,7 +123,7 @@
     manager.responseSerializer = serializer;
     manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
     manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
-    [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
         
     } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -210,6 +210,8 @@
            SRLogLPWarn(@"longPolling has shutdown due to abort");
         }
     }];
+    
+    [dataTask resume];
 }
 
 - (void)delayConnectionReconnect:(id<SRConnectionInterface>)connection canReconnect:(NSNumber *)canReconnect {
