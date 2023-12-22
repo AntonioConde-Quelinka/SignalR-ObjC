@@ -67,6 +67,7 @@
 @synthesize transport = _transport;
 @synthesize credentials = _credentials;
 @synthesize headers = _headers;
+@synthesize challengeHandler = _challengeHandler;
 
 #pragma mark - 
 #pragma mark Initialization
@@ -102,7 +103,8 @@
         _state = disconnected;
         _defaultAbortTimeout = @30;
         _transportConnectTimeout = @0;
-        _protocol = [[SRVersion alloc] initWithMajor:1 minor:3];
+        _protocol = [[SRVersion alloc] initWithMajor:1 minor:5];
+        _challengeHandler = nil;
     }
     return self;
 }
@@ -262,6 +264,7 @@
         _connectionToken = nil;
         _groupsToken = nil;
         _messageId = nil;
+        _challengeHandler = nil;
         
         [self didClose];
     }

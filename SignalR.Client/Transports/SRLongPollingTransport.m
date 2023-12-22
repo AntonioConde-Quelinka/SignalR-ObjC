@@ -123,6 +123,11 @@
     manager.responseSerializer = serializer;
     manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
     manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
+    
+    if (connection.challengeHandler) {
+        [manager setAuthenticationChallengeHandler: connection.challengeHandler];
+    }
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
         
     } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {

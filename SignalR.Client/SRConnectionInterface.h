@@ -27,6 +27,8 @@
 @class SRKeepAliveData;
 @class SRVersion;
 
+typedef id _Nonnull (^SRChallengeHandlerBlock) (NSURLSession * _Nullable session, NSURLSessionTask * _Nullable task, NSURLAuthenticationChallenge * _Nullable challenge, void (^ _Nullable completionHandler)(NSURLSessionAuthChallengeDisposition , NSURLCredential * _Nullable));
+
 @protocol SRConnectionInterface <NSObject>
 
 ///-------------------------------
@@ -47,6 +49,7 @@
 @property (strong, nonatomic, readonly) id<SRClientTransportInterface> transport;
 @property (strong, nonatomic, readwrite) NSURLCredential *credentials;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *headers;
+@property (strong, nonatomic, readwrite) SRChallengeHandlerBlock _Nullable challengeHandler;
 
 ///-------------------------------
 /// @name Internal state

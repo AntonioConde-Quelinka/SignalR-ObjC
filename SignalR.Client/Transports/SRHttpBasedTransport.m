@@ -62,6 +62,10 @@
     manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
     manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
     
+    if (connection.challengeHandler) {
+        [manager setAuthenticationChallengeHandler: connection.challengeHandler];
+    }
+    
     SRLogTransportDebug(@"will negotiate at url: %@", [[request URL] absoluteString]);
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
         
@@ -141,6 +145,10 @@
     manager.responseSerializer = serializer;
     manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
     manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
+    
+    if (connection.challengeHandler) {
+        [manager setAuthenticationChallengeHandler: connection.challengeHandler];
+    }
     
     SRLogTransportDebug(@"will send at url: %@", [[request URL] absoluteString]);
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
@@ -226,6 +234,10 @@
         manager.responseSerializer = serializer;
         manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
         manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
+        
+        if (connection.challengeHandler) {
+            [manager setAuthenticationChallengeHandler: connection.challengeHandler];
+        }
         
         SRLogTransportDebug(@"will abort at url: %@", [[request URL] absoluteString]);
         NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
