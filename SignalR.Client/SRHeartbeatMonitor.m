@@ -25,7 +25,7 @@
 #import "SRKeepAliveData.h"
 #import "SRConnectionState.h"
 #import "SRLog.h"
-#import "SRClientTransportInterface.h"
+#import "Transports/SRClientTransportInterface.h"
 
 @interface SRHeartbeatMonitor ()
 

@@ -21,7 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRConnectionInterface.h"
+#import "../SRConnectionInterface.h"
 #import "SRHttpBasedTransport.h"
 
 @interface SRLongPollingTransport : SRHttpBasedTransport <SRClientTransportInterface>

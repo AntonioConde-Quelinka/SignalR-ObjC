@@ -21,11 +21,11 @@
 //
 
 #import "AFNetworking.h"
-#import "SRConnectionInterface.h"
+#import "../SRConnectionInterface.h"
 #import "SRHttpBasedTransport.h"
-#import "SRLog.h"
-#import "SRNegotiationResponse.h"
-#import "SignalRSecurityPolicy.h"
+#import "../SRLog.h"
+#import "../SRNegotiationResponse.h"
+#import "../SignalRSecurityPolicy.h"
 
 #import "NSObject+SRJSON.h"
 

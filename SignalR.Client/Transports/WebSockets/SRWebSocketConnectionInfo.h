@@ -21,7 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRConnectionInterface.h"
+#import "../../SRConnectionInterface.h"
 
 @interface SRWebSocketConnectionInfo : NSObject
 

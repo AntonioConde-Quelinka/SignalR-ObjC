@@ -21,15 +21,15 @@
 //
 
 #include <TargetConditionals.h>
-#import "SRAutoTransport.h"
+#import "Transports/SRAutoTransport.h"
 #import "SRConnection.h"
 #import "SRLog.h"
 #import "SRNegotiationResponse.h"
-#import "SRVersion.h"
+#import "Infrastructure/SRVersion.h"
 #import "SRKeepAliveData.h"
 #import "SRHeartbeatMonitor.h"
 
-#import "NSObject+SRJSON.h"
+#import "Infrastructure/NSObject+SRJSON.h"
 
 @interface SRConnection ()
 
