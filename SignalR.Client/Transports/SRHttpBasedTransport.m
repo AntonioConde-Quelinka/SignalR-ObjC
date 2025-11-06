@@ -27,7 +27,7 @@
 #import "../SRNegotiationResponse.h"
 #import "../SignalRSecurityPolicy.h"
 
-#import "NSObject+SRJSON.h"
+#import "../Infrastructure/NSObject+SRJSON.h"
 
 @interface SRHttpBasedTransport()
 

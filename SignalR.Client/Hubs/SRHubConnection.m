@@ -27,7 +27,7 @@
 #import "../SRLog.h"
 #import "SRHubResult.h"
 
-#import "NSObject+SRJSON.h"
+#import "../Infrastructure/NSObject+SRJSON.h"
 
 @interface SRHubConnection ()
 
