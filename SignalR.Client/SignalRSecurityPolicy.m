@@ -6,12 +6,12 @@
 //  Copyright © 2020 DyKnow LLC. All rights reserved.
 //
 
-#import "SRSecurityPolicy.h"
+#import "SignalRSecurityPolicy.h"
 
-@implementation SRSecurityPolicy
+@implementation SignalRSecurityPolicy
 
 + (instancetype)sharedManager {
-    static SRSecurityPolicy *sharedMyManager = nil;
+    static SignalRSecurityPolicy *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];

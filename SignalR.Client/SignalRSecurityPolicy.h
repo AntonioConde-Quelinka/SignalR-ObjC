@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SRSecurityPolicy : NSObject
+@interface SignalRSecurityPolicy : NSObject
 @property (nonatomic, assign) BOOL allowInvalidCertificates;
 @property (nonatomic, assign) BOOL validatesDomainName;
 + (instancetype)sharedManager;
