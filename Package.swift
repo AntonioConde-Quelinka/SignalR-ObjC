@@ -27,7 +27,7 @@ let package = Package(
                 "AFNetworking",
                 "SocketRocket"
             ],
-            path: "SignalR.Client",
+            //path: "SignalR.Client",
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath(".")

@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "afnetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AFNetworking/AFNetworking.git",
+      "state" : {
+        "revision" : "ffae2391ab0c29dc88eb0a58d2f5b2c2c27cadbf",
+        "version" : "4.0.1"
+      }
+    },
+    {
+      "identity" : "socketrocket",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lisb/SocketRocket.git",
+      "state" : {
+        "branch" : "lisb-direct",
+        "revision" : "1669d8c708e85d1f9dea236d5cf5930141b9dd88"
+      }
+    }
+  ],
+  "version" : 2
+}
