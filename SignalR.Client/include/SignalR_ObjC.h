@@ -40,3 +40,5 @@ FOUNDATION_EXPORT const unsigned char SignalR_ObjCVersionString[];
 #import "SRExceptionHelper.h"
 #import "SRWebSocketConnectionInfo.h"
 #import "SRHubs.h"
+#import "SignalRSecurityPolicy.h"
+
