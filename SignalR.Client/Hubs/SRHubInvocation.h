@@ -21,8 +21,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRSerializable.h"
-#import "SRDeserializable.h"
+#import "../Infrastructure/SRSerializable.h"
+#import "../Infrastructure/SRDeserializable.h"
 
 /**
  * An `SRHubInvocation` object defines the interface for invoking methods on the SignalR Client using a Hubs implementation

@@ -23,10 +23,10 @@
 #import "SRHubInvocation.h"
 #import "SRHubProxy.h"
 #import "SRHubResult.h"
-#import "SRLog.h"
+#import "../SRLog.h"
 #import "SRSubscription.h"
 #import "SRHubConnectionInterface.h"
-#import "SRConnectionInterface.h"
+#import "../SRConnectionInterface.h"
 
 @interface SRHubProxy ()
 

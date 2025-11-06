@@ -21,7 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRSerializable.h"
+#import "../Infrastructure/SRSerializable.h"
 
 /**
  * An `SRHubRegistrationData` object defines the interface for registering subscriptions with a SignalR Hub

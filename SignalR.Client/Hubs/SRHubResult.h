@@ -21,7 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRDeserializable.h"
+#import "../Infrastructure/SRDeserializable.h"
 
 /**
  * An `SRHubResult` object represents a SignalR Server Hub Response

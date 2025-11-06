@@ -39,3 +39,4 @@ FOUNDATION_EXPORT const unsigned char SignalR_ObjCVersionString[];
 #import "SRDeerializable.h"
 #import "SRExceptionHelper.h"
 #import "SRWebSocketConnectionInfo.h"
+#import "SRHubs.h"
