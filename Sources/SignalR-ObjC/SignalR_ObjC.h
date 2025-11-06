@@ -27,7 +27,7 @@ FOUNDATION_EXPORT const unsigned char SignalR_ObjCVersionString[];
 #import "SRClientTransportInterface.h"
 #import "SRAutoTransport.h"
 #import "SRLongPollingTransport.h"
-#import "SRServerSentEventsTransport.h"
+//#import "SRServerSentEventsTransport.h"
 #import "SRWebSocketTransport.h"
 
 // Infrastructure
