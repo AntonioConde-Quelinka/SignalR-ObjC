@@ -15,12 +15,12 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - OCMock (3.7.1)
-  - SocketRocket (0.5.1)
+  - SocketRocket (0.7.1)
 
 DEPENDENCIES:
   - AFNetworking (= 4.0.1)
   - OCMock
-  - SocketRocket (= 0.5.1)
+  - SocketRocket (= 0.7.1)
 
 SPEC REPOS:
   trunk:
@@ -31,8 +31,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   OCMock: 75fbeaa46a9b11f8c182bbb1d1f7e9a35ccc9955
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
 
-PODFILE CHECKSUM: 376b12d3bea793661c98a68b56eb937b3e05c8db
+PODFILE CHECKSUM: a1a7205d2fad813d709b52b826ba6f3b33a9b126
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.16.2

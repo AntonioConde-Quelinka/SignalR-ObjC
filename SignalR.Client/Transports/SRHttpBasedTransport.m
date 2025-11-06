@@ -20,12 +20,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 #import "SRConnectionInterface.h"
 #import "SRHttpBasedTransport.h"
 #import "SRLog.h"
 #import "SRNegotiationResponse.h"
-#import "SRSecurityPolicy.h"
+#import "SignalRSecurityPolicy.h"
 
 #import "NSObject+SRJSON.h"
 
@@ -59,8 +59,8 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer = serializer;
-    manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-    manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
+    manager.securityPolicy.allowInvalidCertificates = [SignalRSecurityPolicy sharedManager].allowInvalidCertificates;
+    manager.securityPolicy.validatesDomainName = [SignalRSecurityPolicy sharedManager].validatesDomainName;
     
     if (connection.challengeHandler) {
         [manager setAuthenticationChallengeHandler: connection.challengeHandler];
@@ -143,8 +143,8 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer = serializer;
-    manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-    manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
+    manager.securityPolicy.allowInvalidCertificates = [SignalRSecurityPolicy sharedManager].allowInvalidCertificates;
+    manager.securityPolicy.validatesDomainName = [SignalRSecurityPolicy sharedManager].validatesDomainName;
     
     if (connection.challengeHandler) {
         [manager setAuthenticationChallengeHandler: connection.challengeHandler];
@@ -232,8 +232,8 @@
         AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
         AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
         manager.responseSerializer = serializer;
-        manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-        manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
+        manager.securityPolicy.allowInvalidCertificates = [SignalRSecurityPolicy sharedManager].allowInvalidCertificates;
+        manager.securityPolicy.validatesDomainName = [SignalRSecurityPolicy sharedManager].validatesDomainName;
         
         if (connection.challengeHandler) {
             [manager setAuthenticationChallengeHandler: connection.challengeHandler];

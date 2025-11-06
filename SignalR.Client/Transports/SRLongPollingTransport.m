@@ -20,13 +20,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking.h>
 #import "SRConnectionInterface.h"
 #import "SRConnectionExtensions.h"
 #import "SRExceptionHelper.h"
 #import "SRLog.h"
 #import "SRLongPollingTransport.h"
-#import "SRSecurityPolicy.h"
+#import "SignalRSecurityPolicy.h"
 
  @interface SRLongPollingTransport()
  
@@ -121,8 +121,8 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer = serializer;
-    manager.securityPolicy.allowInvalidCertificates = [SRSecurityPolicy sharedManager].allowInvalidCertificates;
-    manager.securityPolicy.validatesDomainName = [SRSecurityPolicy sharedManager].validatesDomainName;
+    manager.securityPolicy.allowInvalidCertificates = [SignalRSecurityPolicy sharedManager].allowInvalidCertificates;
+    manager.securityPolicy.validatesDomainName = [SignalRSecurityPolicy sharedManager].validatesDomainName;
     
     if (connection.challengeHandler) {
         [manager setAuthenticationChallengeHandler: connection.challengeHandler];

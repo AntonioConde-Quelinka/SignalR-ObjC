@@ -20,7 +20,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AFNetworking/AFURLRequestSerialization.h>
+#import <AFURLRequestSerialization.h>
 
 @interface SREventSourceRequestSerializer : AFHTTPRequestSerializer
 

@@ -6,8 +6,32 @@
 //  Copyright © 2025 DyKnow LLC. All rights reserved.
 //
 
-#ifndef SignalR_ObjC_h
-#define SignalR_ObjC_h
+#import <Foundation/Foundation.h>
 
+//! Project version number for SignalR-ObjC.
+FOUNDATION_EXPORT double SignalR_ObjCVersionNumber;
 
-#endif /* SignalR_ObjC_h */
+//! Project version string for SignalR-ObjC.
+FOUNDATION_EXPORT const unsigned char SignalR_ObjCVersionString[];
+
+// Connections
+#import "SRConnection.h"
+
+// Hubs
+#import "SRHubConnection.h"
+#import "SRHubProxy.h"
+#import "SRHubResult.h"
+#import "SRHubInvocation.h"
+
+// Transports
+#import "SRClientTransportInterface.h"
+#import "SRAutoTransport.h"
+#import "SRLongPollingTransport.h"
+#import "SRServerSentEventsTransport.h"
+#import "SRWebSocketTransport.h"
+
+// Infrastructure
+#import "SRVersion.h"
+#import "SRLog.h"
+
+// Otros headers públicos necesarios...

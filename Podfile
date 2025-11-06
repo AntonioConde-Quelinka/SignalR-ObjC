@@ -6,7 +6,7 @@ abstract_target "SignalR.Client.iOSModule" do
     platform :ios, '12.0'
     
     pod 'AFNetworking', '4.0.1'
-    pod 'SocketRocket', '0.5.1'
+    pod 'SocketRocket', '0.7.1'
     
     target "SignalR.Client.iOS" do
     end
@@ -18,10 +18,10 @@ end
 
 abstract_target "SignalR.Client.OSXModule" do
     use_frameworks!
-    platform :osx, '10.10'
+    platform :osx, '10.13'
     
     pod 'AFNetworking', '4.0.1'
-    pod 'SocketRocket', '0.5.1'
+    pod 'SocketRocket', '0.7.1'
     
     target "SignalR.Client.OSX" do
     end
