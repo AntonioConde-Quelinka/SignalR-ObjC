@@ -36,7 +36,7 @@ FOUNDATION_EXPORT const unsigned char SignalR_ObjCVersionString[];
 
 // Otros headers públicos necesarios...
 #import "SRSerializable.h"
-#import "SRDerializable.h"
+#import "SRDeserializable.h"
 #import "SRExceptionHelper.h"
 #import "SRWebSocketConnectionInfo.h"
 #import "SRHubs.h"
