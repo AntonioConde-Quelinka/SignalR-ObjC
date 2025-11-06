@@ -49,7 +49,7 @@
 		39B355021C7CE27B0076E8E0 /* SREventSourceStreamReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B355001C7CE27B0076E8E0 /* SREventSourceStreamReaderTests.m */; };
 		C6D865BB2EBC7DA00006DEAA /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = C6D865BA2EBC7DA00006DEAA /* AFNetworking */; };
 		C6D865CF2EBC87AA0006DEAA /* SocketRocket in Frameworks */ = {isa = PBXBuildFile; productRef = C6D865CE2EBC87AA0006DEAA /* SocketRocket */; };
-		C6D865D42EBC8E290006DEAA /* SignalR-ObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = C6D865D32EBC8E290006DEAA /* SignalR-ObjC.h */; };
+		C6D865D42EBC8E290006DEAA /* SignalR_ObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = C6D865D32EBC8E290006DEAA /* SignalR_ObjC.h */; };
 		DD6BECEC2447DEE2009EAD23 /* SignalRSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6BECE82447DEE1009EAD23 /* SignalRSecurityPolicy.m */; };
 /* End PBXBuildFile section */
 
@@ -152,7 +152,7 @@
 		39F7D7AF1833FC99002590A6 /* SRServerSentEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRServerSentEvent.m; sourceTree = "<group>"; };
 		8CFF876916E13FF500B67FCA /* SRHubConnectionInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRHubConnectionInterface.h; sourceTree = "<group>"; };
 		C6D865D22EBC8CA10006DEAA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		C6D865D32EBC8E290006DEAA /* SignalR-ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignalR-ObjC.h"; sourceTree = "<group>"; };
+		C6D865D32EBC8E290006DEAA /* SignalR_ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignalR_ObjC.h; sourceTree = "<group>"; };
 		DD6BECE72447DEE1009EAD23 /* SignalRSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignalRSecurityPolicy.h; sourceTree = "<group>"; };
 		DD6BECE82447DEE1009EAD23 /* SignalRSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignalRSecurityPolicy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,7 +285,7 @@
 				3920784D15AF13F6009B959E /* SRNegotiationResponse.m */,
 				3920784E15AF13F6009B959E /* SRLog.h */,
 				3920784F15AF13F6009B959E /* Transports */,
-				C6D865D32EBC8E290006DEAA /* SignalR-ObjC.h */,
+				C6D865D32EBC8E290006DEAA /* SignalR_ObjC.h */,
 			);
 			name = SignalR.Client;
 			path = ../SignalR.Client;
@@ -404,7 +404,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6D865D42EBC8E290006DEAA /* SignalR-ObjC.h in Headers */,
+				C6D865D42EBC8E290006DEAA /* SignalR_ObjC.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
