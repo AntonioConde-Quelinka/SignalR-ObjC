@@ -23,10 +23,10 @@
 #import "AFNetworking.h"
 #import <SocketRocket/SRWebSocket.h>
 #import "SRWebSocketTransport.h"
-#import "../SRLog.h"
-#import "WebSockets/SRWebSocketConnectionInfo.h"
-#import "../SRConnectionInterface.h"
-#import "../SRConnectionExtensions.h"
+#import "SRLog.h"
+#import "SRWebSocketConnectionInfo.h"
+#import "SRConnectionInterface.h"
+#import "SRConnectionExtensions.h"
 
 typedef void (^SRWebSocketStartBlock)(id response, NSError *error);
 

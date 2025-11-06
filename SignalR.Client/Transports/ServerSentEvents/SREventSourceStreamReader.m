@@ -22,7 +22,7 @@
 
 #import "SREventSourceStreamReader.h"
 #import "SRChunkBuffer.h"
-#import "../../SRLog.h"
+#import "SRLog.h"
 #import "SRServerSentEvent.h"
 
 typedef enum {

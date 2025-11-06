@@ -24,10 +24,10 @@
 #import "SRHubInvocation.h"
 #import "SRHubProxy.h"
 #import "SRHubRegistrationData.h"
-#import "../SRLog.h"
+#import "SRLog.h"
 #import "SRHubResult.h"
 
-#import "../Infrastructure/NSObject+SRJSON.h"
+#import "NSObject+SRJSON.h"
 
 @interface SRHubConnection ()
 

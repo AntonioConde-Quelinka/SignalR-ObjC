@@ -21,7 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Infrastructure/SRDeserializable.h"
+#import "SRDeserializable.h"
 
 /**
  *  An `SRNegotiationResponse` object provides access to the negotiation response object received from the server 

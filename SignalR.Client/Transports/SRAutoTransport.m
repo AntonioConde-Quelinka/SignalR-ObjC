@@ -21,10 +21,10 @@
 //
 
 #import "SRAutoTransport.h"
-#import "../SRConnectionInterface.h"
-#import "../SRLog.h"
+#import "SRConnectionInterface.h"
+#import "SRLog.h"
 #import "SRLongPollingTransport.h"
-#import "../SRNegotiationResponse.h"
+#import "SRNegotiationResponse.h"
 #import "SRWebSocketTransport.h"
 
 @interface SRAutoTransport ()

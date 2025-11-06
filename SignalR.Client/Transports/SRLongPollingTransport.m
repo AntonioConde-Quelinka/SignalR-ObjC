@@ -21,12 +21,12 @@
 //
 
 #import <AFNetworking.h>
-#import "../SRConnectionInterface.h"
-#import "../SRConnectionExtensions.h"
-#import "../Infrastructure/SRExceptionHelper.h"
-#import "../SRLog.h"
+#import "SRConnectionInterface.h"
+#import "SRConnectionExtensions.h"
+#import "SRExceptionHelper.h"
+#import "SRLog.h"
 #import "SRLongPollingTransport.h"
-#import "../SignalRSecurityPolicy.h"
+#import "SignalRSecurityPolicy.h"
 
  @interface SRLongPollingTransport()
  

@@ -21,7 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../SRConnection.h"
+#import "SRConnection.h"
 #import "SRHubConnectionInterface.h"
 
 @protocol SRHubProxyInterface;
