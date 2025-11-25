@@ -7,6 +7,41 @@ SignalR-ObjC is intended to be used along side ASP.NET SignalR, a new library fo
 
 ## Installation
 
+### Installation with Swift Package Manager
+
+[Swift Package Manager](https://swift.org/package-manager/) is Apple's official dependency manager for Swift and is integrated directly into Xcode.
+
+To integrate SignalR-ObjC into your Xcode project using Swift Package Manager:
+
+1. In Xcode, select **File** > **Add Package Dependencies...**
+2. Enter the package repository URL:
+   ```
+   https://github.com/AntonioConde-Quelinka/SignalR-ObjC.git
+   ```
+3. Specify the branch name as **master**
+4. Click **Add Package**
+5. Select the target(s) where you want to use SignalR-ObjC
+6. Click **Add Package** to finish
+
+Alternatively, you can add SignalR-ObjC to your `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/AntonioConde-Quelinka/SignalR-ObjC.git", branch: "master")
+]
+```
+
+Then add it to your target dependencies:
+
+```swift
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: ["SignalR-ObjC"]
+    )
+]
+```
+
 ### Installation with CocoaPods
 
 [CocoaPods](https://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SignalR-ObjC in your projects. See the ["Getting Started" guide for more information](https://guides.cocoapods.org/using/getting-started.html). You can install it with the following command:
