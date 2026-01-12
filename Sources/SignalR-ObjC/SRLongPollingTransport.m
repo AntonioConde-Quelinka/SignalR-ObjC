@@ -94,6 +94,12 @@
         url = [url stringByAppendingString:@"poll"];
     }
     
+    // Guard: prevents nil values that causes problem
+    if (connection == nil || url == nil) {
+        SRLogLPDebug(@"longPolling connection or url are nil. Url: %@, Connection: %@", url, connection);
+        return;
+    }
+    
     [self delayConnectionReconnect:connection canReconnect:canReconnect];
     
     __weak __typeof(&*self)weakSelf = self;
