@@ -15,9 +15,9 @@ let package = Package(
         )
     ],
     dependencies: [
-        // AFNetworking - Nota: Necesitarás verificar si existe una versión compatible con SPM
+        // AFNetworking - Nota: se coge de Fork con correcciones al oficial (que esta ya archvoda y sin soporte)
         // SocketRocket - Nota: Necesitarás verificar si existe una versión compatible con SPM
-        .package(url: "https://github.com/AFNetworking/AFNetworking.git", from: "4.0.1"),
+        .package(url: "https://github.com/AntonioConde-Quelinka/AFNetworking.git", branch: "master"),
         .package(url: "https://github.com/lisb/SocketRocket.git", branch: "lisb-direct")
     ],
     targets: [

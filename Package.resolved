@@ -3,10 +3,10 @@
     {
       "identity" : "afnetworking",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AFNetworking/AFNetworking.git",
+      "location" : "https://github.com/AntonioConde-Quelinka/AFNetworking.git",
       "state" : {
-        "revision" : "ffae2391ab0c29dc88eb0a58d2f5b2c2c27cadbf",
-        "version" : "4.0.1"
+        "branch" : "master",
+        "revision" : "974f3eeaf16f12d03d15af9c925024a9700c45a9"
       }
     },
     {
